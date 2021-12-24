@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class BookController extends Controller
 {
@@ -13,7 +14,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $book = Book::all();
+        return view('book',['books'=> $book,'layout'=>'index']);
     }
 
     /**
@@ -23,7 +25,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $book = Book::all();
+        return view('book',['books'=> $book,'layout'=>'create']);
     }
 
     /**
@@ -34,7 +37,14 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = new Book();
+        $book -> id = $request->input('id');
+        $book -> book_name = $request->input('book_name');
+        $book -> book_author = $request->input('book_author');
+        $book -> book_category = $request->input('book_category');
+        $book -> speciality = $request->input('speciality');
+        $book->save();
+        return redirect('/');
     }
 
     /**
@@ -45,7 +55,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::find($id);
+        $books =Book::all();
+        return view('book',['books'=>$books,'book'=>$book,'layout'=>'show']);
     }
 
     /**
@@ -56,7 +68,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Book::find($id);
+        $books =Book::all();
+        return view('book',['books'=>$books,'book'=>$book,'layout'=>'edit']);
     }
 
     /**
@@ -68,7 +82,14 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::find($id);
+        $book -> id = $request->input('id');
+        $book -> book_name = $request->input('book_name');
+        $book -> book_author = $request->input('book_author');
+        $book -> book_category = $request->input('book_category');
+        $book -> speciality = $request->input('speciality');
+        $book->save();
+        return redirect('/');
     }
 
     /**
@@ -79,6 +100,8 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Book::find($id);
+        $book->delete();
+        return redirect('/');
     }
 }

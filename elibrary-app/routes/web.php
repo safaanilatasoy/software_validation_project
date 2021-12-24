@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +13,19 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+#Route::get('/',"BookController@index"); 
+
+Route::get('/edit/{id}',"BookController@edit"); 
+Route::get('/show/{id}',"BookController@show"); 
+Route::get('/create',"BookController@create"); 
+Route::post('/store',"BookController@store"); 
+Route::post('/update/{id}',"BookController@update"); 
+
+Route::get('/', [BookController::class, 'index']);
