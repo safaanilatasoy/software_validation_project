@@ -12,23 +12,25 @@
     <title>ELibrary</title>
   </head>
   <body>
+    <!--Navbar-->
+    @include('navbar')
+    <!--Navbar END-->
 
 
     @if ($layout == 'index')
         <div class="container-fluid">
   <div class="row">
-
-
-          <section class="col">>
+          <section class="col-md-7">
+            {{-- Booklist --}}
               @include('booklist')
           </section>
-          <section class="col"></section>  
+          <section class="col-md-5"></section>  
       </div>
       </div>
         @elseif ($layout == 'create')
         <div class="container-fluid">
   <div class="row">
-          <section class="col">>
+          <section class="col">
               @include('booklist')
           </section>
           <section class="col">
@@ -57,7 +59,7 @@
     @elseif ($layout == 'show')
     <div class="container-fluid">
   <div class="row">
-          <section class="col">>
+          <section class="col">
               @include('booklist')
           </section>
           <section class="col"></section>
@@ -65,7 +67,7 @@
     @elseif ($layout == 'edit')
     <div class="container-fluid">
       <div class="row">
-          <section class="col">>
+          <section class="col">
               @include('booklist')
           </section>
           <section class="col">
