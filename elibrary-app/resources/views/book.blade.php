@@ -15,14 +15,61 @@
 
 
     @if ($layout == 'index')
-        <div class="container-fluid"></div>
-        <section>
-            @include('booklist')
-        </section>
-        <section></section>
+        <div class="container-fluid">
+  <div class="row">
+
+
+          <section class="col">>
+              @include('booklist')
+          </section>
+          <section class="col"></section>  
+      </div>
+      </div>
         @elseif ($layout == 'create')
+        <div class="container-fluid">
+  <div class="row">
+          <section class="col">>
+              @include('booklist')
+          </section>
+          <section class="col">
+            <form action="{{url('/store')}}" method="post">
+              @csrf
+              <div class="form-group">
+                <label>Book Name</label>
+                <input name="book_name" type="text" class="form-control" placeholder="Enter book name">
+              </div>
+              <div class="form-group">
+                <label>Author</label>
+                <input name="book_author" type="text" class="form-control" placeholder="Enter book author's name">
+              </div>
+              <div class="form-group">
+                <label>Category</label>
+                <input name="book_category" type="text" class="form-control" placeholder="Enter book category">
+              </div>
+              <input type="submit" class="btn btn-info" value="Save">
+              <input type="reset" class="btn btn-warning" value="Reset">
+              
+            </form>
+
+          </section>
+        </div>
+      </div>
     @elseif ($layout == 'show')
+    <div class="container-fluid">
+  <div class="row">
+          <section class="col">>
+              @include('booklist')
+          </section>
+          <section class="col"></section>
+      </div></div>
     @elseif ($layout == 'edit')
+    <div class="container-fluid">
+      <div class="row">
+          <section class="col">>
+              @include('booklist')
+          </section>
+          <section class="col"></section>
+      </div></div>
     @endif
 
     <!-- Optional JavaScript -->
