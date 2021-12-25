@@ -18,7 +18,7 @@
 
 
     @if ($layout == 'index')
-        <div class="container-fluid">
+        <div class="container-fluid mt-4">
   <div class="row">
           <section class="col-md-7">
             {{-- Booklist --}}
@@ -28,7 +28,7 @@
       </div>
       </div>
         @elseif ($layout == 'create')
-        <div class="container-fluid">
+        <div class="container-fluid mt-4">
   <div class="row">
           <section class="col">
               @include('booklist')
@@ -57,7 +57,7 @@
         </div>
       </div>
     @elseif ($layout == 'show')
-    <div class="container-fluid">
+    <div class="container-fluid mt-4">
   <div class="row">
           <section class="col">
               @include('booklist')
@@ -65,7 +65,7 @@
           <section class="col"></section>
       </div></div>
     @elseif ($layout == 'edit')
-    <div class="container-fluid">
+    <div class="container-fluid mt-4">
       <div class="row">
           <section class="col">
               @include('booklist')
