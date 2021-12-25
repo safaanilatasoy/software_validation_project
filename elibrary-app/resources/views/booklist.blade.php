@@ -16,9 +16,9 @@
       <td scope="row">{{$book->book_category }}</td>
       <td>
         <a href="#" class="btn btn-sm btn-info">Show</a>
-        <!-- editler değiştirilip download özelliği eklenecek -->
-        <a href="#" class="btn btn-sm btn-warning">Donwload</a>
-        <!--<a href="#" class="btn btn-sm btn-danger"></a>-->
+        
+        <a href="#" class="btn btn-sm btn-warning">Edit</a>
+        <a href="#" class="btn btn-sm btn-danger">Delete</a>
 
       </td>
       

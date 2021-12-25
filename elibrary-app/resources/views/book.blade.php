@@ -68,7 +68,31 @@
           <section class="col">>
               @include('booklist')
           </section>
-          <section class="col"></section>
+          <section class="col">
+            <form action="{{url('/update/'.$book->id)}}" method="post">
+              @csrf
+              <div class="form-group">
+                <label>Book id</label>
+                <input value="{{$book->id}}" name="book_name" type="text" class="form-control" placeholder="Enter book name">
+              </div>
+              <div class="form-group">
+                <label>Book Name</label>
+                <input value="{{$book->book_name}}" name="book_name" type="text" class="form-control" placeholder="Enter book name">
+              </div>
+              <div class="form-group">
+                <label>Author</label>
+                <input value="{{$book->book_author}}" name="book_author" type="text" class="form-control" placeholder="Enter book author's name">
+              </div>
+              <div class="form-group">
+                <label>Category</label>
+                <input value="{{$book->book_category}}" name="book_category" type="text" class="form-control" placeholder="Enter book category">
+              </div>
+              <input type="submit" class="btn btn-info" value="Update">
+              <input type="reset" class="btn btn-warning" value="Reset">
+              
+            </form>
+
+          </section>
       </div></div>
     @endif
 
