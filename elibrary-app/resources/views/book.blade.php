@@ -125,6 +125,10 @@ body {
                 <label>Category</label>
                 <input name="book_category" type="text" class="form-control" placeholder="Enter book category">
               </div>
+              <div class="form-group">
+                <label>Book File</label>
+                <input name="book_file" type="file" class="form-control" placeholder="upload book file">
+              </div>
               <input type="submit" class="btn btn-info" value="Save">
               <input type="reset" class="btn btn-warning" value="Reset">
               
@@ -173,6 +177,7 @@ body {
 
           </section>
       </div></div>
+
     @endif
 
     <!-- Optional JavaScript -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use DB;
 
 class BookController extends Controller
 {
@@ -27,6 +28,12 @@ class BookController extends Controller
     {
         $book = Book::all();
         return view('book',['books'=> $book,'layout'=>'create']);
+    }
+    // Download controller
+    public function download()
+    {
+        $downloads=Book::table('books')->get();
+        return view('booklist',compact('downloads'));
     }
 
     /**
