@@ -14,9 +14,10 @@
       <td scope="row">{{$book->book_name }}</td>
       <td scope="row">{{$book->book_author }}</td>
       <td scope="row">{{$book->book_category }}</td>
+     
       <td>
         {{-- İndirme özelliği eklenecek --}}
-        <a href="download/{{$book->book_file}}" class="btn btn-sm btn-info">Donwload</a>
+        <a href="#" class="btn btn-sm btn-info">Donwload</a>
         
         
         <a href="{{url('/create')}}" class="btn btn-sm btn-warning">Edit</a>

@@ -172,14 +172,7 @@ body {
               </div>
               <div class="form-group">
                 <label>Book File</label>
-                <?php
-                echo Form::open(array('url' => '/elibrary-app/public/download','files'=>'true'));
-                echo 'Select the file to upload.';
-                echo Form::file('image');
-            
-             ?>
-               
-            
+                <input value="{{$book->book_file }}" name="book_file" type="file" class="form-control" placeholder="Upload book category">
               </div>
               <input type="submit" class="btn btn-info" value="Update">
               <input type="reset" class="btn btn-warning" value="Reset">

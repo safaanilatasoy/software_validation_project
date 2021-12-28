@@ -29,12 +29,8 @@ class BookController extends Controller
         $book = Book::all();
         return view('book',['books'=> $book,'layout'=>'create']);
     }
-    // Download controller
-    public function download()
-    {
-        $downloads=Book::table('books')->get();
-        return view('booklist',compact('downloads'));
-    }
+   
+    
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +46,8 @@ class BookController extends Controller
         $book -> book_author = $request->input('book_author');
         $book -> book_category = $request->input('book_category');
         $book -> book_file = $request->input('book_file');
-        
+
+
         $book->save();
         return redirect('/');
     }
@@ -65,7 +62,7 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $books =Book::all();
-        return view('book',['books'=>$books,'book'=>$book,'layout'=>'show']);
+        // return view('book',['books'=>$books,'book'=>$book,'layout'=>'show']);
     }
 
     /**
@@ -95,7 +92,7 @@ class BookController extends Controller
         $book -> book_name = $request->input('book_name');
         $book -> book_author = $request->input('book_author');
         $book -> book_category = $request->input('book_category');
-        $book -> book_file = $request->input('book_file');
+       
         
         $book->save();
         return redirect('/');
