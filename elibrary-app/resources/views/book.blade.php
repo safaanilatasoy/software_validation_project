@@ -152,7 +152,7 @@ body {
               @include('booklist')
           </section>
           <section class="col">
-            <form action="{{url('/update/'.$book->id)}}" method="post">
+            <form action="{{url('/update/'.$book->id)}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label>Book id</label>
@@ -169,6 +169,17 @@ body {
               <div class="form-group">
                 <label>Category</label>
                 <input value="{{$book->book_category}}" name="book_category" type="text" class="form-control" placeholder="Enter book category">
+              </div>
+              <div class="form-group">
+                <label>Book File</label>
+                <?php
+                echo Form::open(array('url' => '/elibrary-app/public/download','files'=>'true'));
+                echo 'Select the file to upload.';
+                echo Form::file('image');
+            
+             ?>
+               
+            
               </div>
               <input type="submit" class="btn btn-info" value="Update">
               <input type="reset" class="btn btn-warning" value="Reset">

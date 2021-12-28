@@ -49,6 +49,7 @@ class BookController extends Controller
         $book -> book_name = $request->input('book_name');
         $book -> book_author = $request->input('book_author');
         $book -> book_category = $request->input('book_category');
+        $book -> book_file = $request->input('book_file');
         
         $book->save();
         return redirect('/');
@@ -94,6 +95,7 @@ class BookController extends Controller
         $book -> book_name = $request->input('book_name');
         $book -> book_author = $request->input('book_author');
         $book -> book_category = $request->input('book_category');
+        $book -> book_file = $request->input('book_file');
         
         $book->save();
         return redirect('/');
