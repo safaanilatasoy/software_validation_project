@@ -22,7 +22,11 @@
         
         <a href="{{url('/edit/'.$book->id)}}" class="btn btn-sm btn-warning">Edit</a>
         {{-- Silme özelliği eklenecek --}}
-        <a href="{{url('/')}}" class="btn btn-sm btn-danger">Delete</a>
+        <form action="{{route('destroy/',$book->id)}}" method="post">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
         
 
       </td>

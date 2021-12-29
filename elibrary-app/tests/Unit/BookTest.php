@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Book;
+use Illuminate\Http\Request;
+use DB;
 
 
 
@@ -31,14 +33,8 @@ class BookTest extends TestCase
         $response -> assertStatus(200);
         
     }
-    public function test_createBook()
-    {
-        $book1 = book::create([
-            'book_name' => "test",
-            'book_author' => "test_author",
-            'book_category' => "category_test"
-        ]);
-    }
+
+
     
     
 

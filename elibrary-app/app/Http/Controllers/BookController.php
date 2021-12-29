@@ -109,6 +109,6 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $book->delete();
-        return redirect('/');
+        return redirect('/') -> width('success','Book Deleted');  
     }
 }
