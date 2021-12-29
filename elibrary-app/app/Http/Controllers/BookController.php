@@ -27,6 +27,7 @@ class BookController extends Controller
     public function create()
     {
         $book = Book::all();
+        
         return view('book',['books'=> $book,'layout'=>'create']);
     }
    
@@ -62,7 +63,7 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $books =Book::all();
-        // return view('book',['books'=>$books,'book'=>$book,'layout'=>'show']);
+        return view('book',['books'=>$books,'book'=>$book,'layout'=>'show']);
     }
 
     /**

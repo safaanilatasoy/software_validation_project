@@ -20,9 +20,10 @@
         <a href="#" class="btn btn-sm btn-info">Donwload</a>
         
         
-        <a href="{{url('/create')}}" class="btn btn-sm btn-warning">Edit</a>
+        <a href="{{url('/edit/'.$book->id)}}" class="btn btn-sm btn-warning">Edit</a>
         {{-- Silme özelliği eklenecek --}}
-        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+        <a href="{{url('/')}}" class="btn btn-sm btn-danger">Delete</a>
+        
 
       </td>
       

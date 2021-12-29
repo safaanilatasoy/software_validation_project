@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Book;
 
 
+
 class BookTest extends TestCase
 {
     /**
@@ -16,37 +17,31 @@ class BookTest extends TestCase
     public function test_addbook_form()
     {
         $response = $this->get('/create');
+
+        $book = Book::all();
         
         $response -> assertStatus(200);
         
     }
-    public function test_deletebook_form()
+    public function test_index()
     {
-        $response = $this->get('/create');
+        $response = $this->get('/');
+        $book = Book::all();
         
         $response -> assertStatus(200);
         
     }
-   
-   public function test_addbook_duplication(){
-       $book1 = Book::make([
-           
-           'book_name' => 'Harry Potter',
-           'book_author' => 'JK Rowling',
-           'book_category' => 'Adventure',
-           'book_file' => 'potter.pdf'
-           
-       ]);
-       $book2 = Book::make([
-           
-        'book_name' => 'Nutuk',
-        'book_author' => 'Mustafa Kemal ATATURK',
-        'book_category' => 'Legendary',
-        'book_file' => 'nutuk.pdf'
-        
-    ]);
-    $this-> assertTrue($book1->book_name != $book2->book_name );
-   }
+    public function test_createBook()
+    {
+        $book1 = book::create([
+            'book_name' => "test",
+            'book_author' => "test_author",
+            'book_category' => "category_test"
+        ]);
+    }
+    
+    
+
 
 }
 

@@ -137,6 +137,7 @@ body {
           </section>
         </div>
       </div>
+      
     @elseif ($layout == 'show')
     <div class="container-fluid mt-4">
   <div class="row">

@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\Route;
 #Route::post('/update/{id}',"BookController@update"); 
 
 Route::get('/', [BookController::class, 'index']);
-Route::get('/edit{id}', [BookController::class, 'edit']);
-Route::get('/show{id}', [BookController::class, 'show']);
+Route::get('/edit/{id}', [BookController::class, 'edit']);
+Route::get('/show/{id}', [BookController::class, 'show']);
 Route::get('/create', [BookController::class, 'create']);
 Route::post('/store', [BookController::class, 'store']);
-Route::post('/update{id}', [BookController::class, 'update']);
+Route::post('/update/{id}', [BookController::class, 'update']);
+Route::post('/delete/{id}"', [BookController::class, 'delete']);
 
 
 
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
