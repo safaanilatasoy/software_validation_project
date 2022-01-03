@@ -18,7 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('book_name');
             $table->string('book_author');
             $table->string('book_category');
-            $table->string('book_file');
+            // $table ->string('book_desc');
             $table->timestamps();
         });
     }

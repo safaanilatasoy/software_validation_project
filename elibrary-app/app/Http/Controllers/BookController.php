@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use DB;
+use App\Models\File;
+use Illuminate\Http\UploadedFile;
+use App\Http\Requests\StoreFileRequest;
+use Illuminate\Http\Response;
+use Illuminate\Http\Storage;
 
 class BookController extends Controller
 {
@@ -46,9 +51,20 @@ class BookController extends Controller
         $book -> book_name = $request->input('book_name');
         $book -> book_author = $request->input('book_author');
         $book -> book_category = $request->input('book_category');
-        $book -> book_file = $request->input('book_file');
+        // $book -> book_desc = $request -> input('book_desc');
+        $fileName = $book->book_name . '.'. $request->file->extension();  
 
+        $type = $request->file->getClientMimeType();
+        $size = $request->file->getSize();
+        
 
+        $request->file->move(public_path('file'), $fileName);
+
+        File::create([
+            'name' => $fileName,
+            'type' => $type,
+            'size' => $size
+        ]);
         $book->save();
         return redirect('/');
     }
@@ -89,7 +105,7 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $book = Book::find($id);
-        $book -> id = $request->input('id');
+        
         $book -> book_name = $request->input('book_name');
         $book -> book_author = $request->input('book_author');
         $book -> book_category = $request->input('book_category');
@@ -111,4 +127,8 @@ class BookController extends Controller
         $book->delete();
         return redirect('/') -> width('success','Book Deleted');  
     }
+
+   
 }
+
+

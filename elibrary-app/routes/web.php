@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Book;
+
 
 
 
@@ -18,9 +21,23 @@ Route::get('/show/{id}', [BookController::class, 'show']);
 Route::get('/create', [BookController::class, 'create']);
  Route::post('/store', [BookController::class, 'store']);
  Route::post('/update/{id}', [BookController::class, 'update']);
+//  Route::get('/download/{id}', [BookController::class, 'download']);
+/**
+* File Upload Routes
+*/
+Route::get('/download/{id}', [BookController::class, 'download']);
+
 //  Route::post('/delete/{id}"', [BookController::class, 'delete']);
 
 
+
+
+
+// Route::get('/delete',function($id){
+//     $book = Book::find($id);
+//     $book->delete();
+//     return redirect('/') -> width('success','Book Deleted'); 
+// });
 
 
 

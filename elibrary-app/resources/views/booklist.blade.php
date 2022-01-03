@@ -17,16 +17,12 @@
      
       <td>
         {{-- İndirme özelliği eklenecek --}}
-        <a href="#" class="btn btn-sm btn-info">Donwload</a>
+        {{-- <a href="{{url('/download/'.$book->id)}}" class="btn btn-sm btn-info">Donwload</a> --}}
         
         
         <a href="{{url('/edit/'.$book->id)}}" class="btn btn-sm btn-warning">Edit</a>
         {{-- Silme özelliği eklenecek --}}
-        <form action="{{route('destroy/',$book->id)}}" method="post">
-          @csrf
-          @method('DELETE')
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
+       {{-- <a href="{{url('/delete')}}" class="btn btn-sm btn-warning">delete</a> --}}
         
 
       </td>

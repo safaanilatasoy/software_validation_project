@@ -65,9 +65,11 @@ body {
     </style>
   </head>
   <body>
+    
     <!--Navbar-->
     @include('navbar')
     <!--Navbar END-->
+    
     {{-- Slider start --}}
     <div class="slider">
       <div class="controls">
@@ -111,7 +113,7 @@ body {
               @include('booklist')
           </section>
           <section class="col">
-            <form action="{{url('/store')}}" method="post">
+            <form action="{{url('/store') }}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label>Book Name</label>
@@ -125,10 +127,14 @@ body {
                 <label>Category</label>
                 <input name="book_category" type="text" class="form-control" placeholder="Enter book category">
               </div>
+             
               <div class="form-group">
                 <label>Book File</label>
-                <input name="book_file" type="file" class="form-control" placeholder="upload book file">
+                @csrf
+                <input name="file" type="file" class="form-control" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip" placeholder="upload book file">
+                
               </div>
+      
               <input type="submit" class="btn btn-info" value="Save">
               <input type="reset" class="btn btn-warning" value="Reset">
               
@@ -137,6 +143,7 @@ body {
           </section>
         </div>
       </div>
+      
       
     @elseif ($layout == 'show')
     <div class="container-fluid mt-4">
@@ -155,10 +162,7 @@ body {
           <section class="col">
             <form action="{{url('/update/'.$book->id)}}" method="post" enctype="multipart/form-data">
               @csrf
-              <div class="form-group">
-                <label>Book id</label>
-                <input value="{{$book->id}}" name="book_name" type="text" class="form-control" placeholder="Enter book name">
-              </div>
+              
               <div class="form-group">
                 <label>Book Name</label>
                 <input value="{{$book->book_name}}" name="book_name" type="text" class="form-control" placeholder="Enter book name">
@@ -173,10 +177,10 @@ body {
               </div>
               <div class="form-group">
                 <label>Book File</label>
-                <input value="{{$book->book_file }}" name="book_file" type="file" class="form-control" placeholder="Upload book category">
+                <input value="" name="upload_file" type="file" class="form-control" placeholder="Upload book category">
               </div>
               <input type="submit" class="btn btn-info" value="Update">
-              <input type="reset" class="btn btn-warning" value="Reset">
+              
               
             </form>
 
